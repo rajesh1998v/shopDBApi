@@ -83,7 +83,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rajesh1998v/shopAs8b.git"
+    "url": "git+https://github.com/rajesh1998v/shopAs8b.git",
+    "start": "node dataDBApi.js"
   },
   "keywords": [],
   "author": "",
