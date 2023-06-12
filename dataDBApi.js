@@ -37,7 +37,7 @@ app.post("/shops", function (req, res, next) {
     client.query(query, function (err, result) {
         if(err)  res.status(400).send(err);
         else{
-            let maxid = result.rows.reduce((acc,curr)=>acc>curr.shopid?acc:curr,0).shopid;
+            let maxid = result.rows.reduce((acc,curr)=>acc.shopid>curr.shopid?acc:curr,0).shopid;
             let newId = maxid+1;
             let newShop = {shopid:newId,...body}
             let values = Object.values(newShop);
@@ -74,7 +74,7 @@ app.post("/products", function (req, res, next) {
     client.query(query, function (err, result) {
         if(err)  res.status(400).send(err);
         else{
-            let maxid = result.rows.reduce((acc,curr)=>acc>curr.productid?acc:curr,0).productid;
+            let maxid = result.rows.reduce((acc,curr)=>acc.productid>curr.productid?acc:curr,0).productid;
             let newId = maxid+1;
             let newProduct = {productid:newId,...body}
             let values = Object.values(newProduct);
